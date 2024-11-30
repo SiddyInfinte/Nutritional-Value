@@ -156,6 +156,7 @@
     color: white;
     background-color: #070707;
     border-radius: 15px;
+    border: 0.03px solid #1e1d1d;
 }
 .contentBox:hover {
     animation-name: bigSize;
@@ -304,7 +305,7 @@
     color: white;
     background-color: #070707;
     border-radius: 15px;
-    box-shadow: 1px 2px 8px #1e1d1d, 1px 4px 10px #1e1d1d;
+    border: 0.03px solid #1e1d1d;
 }
 
 .advsContentBox button {
