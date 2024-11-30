@@ -125,11 +125,7 @@
   100% { background-position: 0% 50%; }
                   
 }
-.bodyContents {
-    background: radial-gradient(circle at top, rgb(94, 189, 0) 0%, rgb(129, 24, 24) 57%, rgb(51, 41, 102) 100%); 
-    background-size: 400% 400%;
-    animation: animationName 16s ease infinite;
-}
+
 .normalbox {
     width: 100px;
 }
@@ -160,7 +156,6 @@
     color: white;
     background-color: #070707;
     border-radius: 15px;
-    box-shadow: 1px 2px 8px #1e1d1d, 1px 4px 10px #1e1d1d;
 }
 .contentBox:hover {
     animation-name: bigSize;
