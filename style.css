@@ -1,0 +1,334 @@
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Space between left, center, and right sections */
+    align-items: center; /* Vertically align all items */
+    background-color: #010203;
+    padding: 12px;
+    margin: 0;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 0px 5px 20px rgb(61, 61, 61);
+    opacity: 90%;
+    position: fixed; 
+    height: 30px; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+}
+
+.body p {
+    -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+}
+.body h1 {
+    -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+}
+.body h2 {
+    -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+}
+.body h3 {
+    -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+}
+.body h4 {
+    -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+}
+.body h5 {
+    -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+}
+.body div {
+    -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+}
+
+.navbar p {
+    color: whitesmoke;
+    margin: 0;
+    flex-shrink: 0; /* Prevent shrinking of the text */
+    overflow: hidden;
+    position: absolute;
+}
+
+.body img {
+    color: whitesmoke;
+    margin: 0;
+    flex-shrink: 0;
+    overflow: hidden;
+    position: absolute;
+    align-self: inherit;
+}
+.titleBox {
+    background: none;
+}
+
+.justifyItemsCenter {
+    display: flex;
+    justify-content: center; /* Center links horizontally */
+    align-items: center; /* Vertically align links */
+    gap: 10px; /* Add space between links */
+    flex-grow: 1; /* Allow this section to take up extra space */
+    text-align: center; /* Center-align text */
+}
+
+.navbar a {
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 100px;
+    display: inline-block; /* Keep links inline */
+}
+
+.navbar a:hover {
+    opacity: 90%;
+}
+@keyframes animationName {
+                    
+  0% { background-position: 0% 50%; }
+                    
+  50% { background-position: 100% 50%; }
+                    
+  100% { background-position: 0% 50%; }
+                  
+}
+@keyframes animationName {
+                    
+  0% { background-position: 0% 50%; }
+                    
+  50% { background-position: 100% 50%; }
+                    
+  100% { background-position: 0% 50%; }
+                  
+}
+.bodyContents {
+    background: radial-gradient(circle at top, rgb(94, 189, 0) 0%, rgb(129, 24, 24) 57%, rgb(51, 41, 102) 100%); 
+    background-size: 400% 400%;
+    animation: animationName 16s ease infinite;
+}
+.normalbox {
+    width: 100px;
+}
+
+.spcbox {
+    padding: 12px 20px; /* Adjust padding for spacing */
+    background-color: white; /* Optional: Add a background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow */
+    width: 100%; /* Make it take up full width */
+    max-width: 800px; /* Limit the maximum width */
+    margin: 0 auto; /* Center it horizontally */
+    text-align: center; /* Center the content */
+    display: block; /* Ensure it's treated as a block element */
+    color: black;
+}
+
+.formBody {
+    margin-top: 3%;
+    margin-left: 24%;
+    margin-right: 24%;
+    border-radius: 15px;
+}
+
+.contentBox {
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    background-color: #070707;
+    border-radius: 15px;
+    box-shadow: 1px 2px 8px #1e1d1d, 1px 4px 10px #1e1d1d;
+}
+.contentBox:hover {
+    animation-name: bigSize;
+    animation-duration: 1s;
+}
+@keyframes shadowDance {
+    0% {
+        box-shadow: 0px 0px 0px rgb(61, 61, 61);
+    }
+    20% {
+        box-shadow: 0px 3px 8px rgb(61, 61, 61);
+    }
+    40% {
+        box-shadow: 0px 2px 10px rgb(61, 61, 61);
+    }
+    60% {
+        box-shadow: 0px 5px 20px rgb(61, 61, 61);
+    }
+    80% {
+        box-shadow: 0px 2px 10px rgb(61, 61, 61);
+    }
+    100% {
+        box-shadow: 0px 0px 0px rgb(61, 61, 61);
+    }
+} 
+
+@keyframes bigSize {
+    0% {
+        padding: auto;
+    }
+    50% {
+        padding: 8px;
+    }
+    100% {
+        padding: 10px;
+    }
+}
+@keyframes smallSize {
+    from {
+        padding: auto;
+    }
+    to {
+        padding: auto;
+    }
+}
+.contentBox p {
+    margin: 2%;
+}
+
+@font-face {
+    font-family: Amazer7;
+    src: url(./amazer7.ttf);
+}
+
+.body {
+    font-family: Amazer7;
+}
+.body hr {
+    border: 3px solid #070707;
+    opacity: 90%;
+    border-radius: 15px;
+}
+
+.body input {
+    border-radius: 15px;
+    background-color: white;
+    color: black;
+    width: 80%;
+    padding: 12px;
+    margin: 0;
+    border: 5px solid white;
+}
+
+@keyframes animatedShadow {
+    0% {
+        box-shadow: 0px 1px 12px whitesmoke;
+    }
+    20% {
+        box-shadow: 0px 2px 10px whitesmoke;
+    }
+    40% {
+        box-shadow: 0px 1px 8px whitesmoke;
+    }
+    60% {
+        box-shadow: 0px 2px 10px whitesmoke;
+    }
+    80% {
+        box-shadow: 0px 1px 11px whitesmoke;
+    }
+    100% {
+        box-shadow: 0px 1px 12px whitesmoke;
+    }
+}
+
+.checkbox {
+    padding: 8px;
+    border-radius: 100px;
+    background-color: white;
+    align-self: center;
+    justify-self: center;
+    display: inline-block;
+    
+}
+.selected {
+    padding: 8px;
+    border-radius: 100px;
+    background-color: #bdbbbb;
+    animation-name: shadowDance;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    align-self: center;
+    justify-self: center;
+    display: inline-block;
+}
+.checkbox:hover {
+    background-color: #bdbbbb;
+}
+
+.boxx p {
+    display: inline-block;
+    margin-left: 10px;
+}
+.boxx {
+    justify-items: center;
+    align-items: left;
+    justify-content: center;
+    align-content: left;
+    gap: 20px;
+}
+.boxx div {
+    display: inline-block;
+}
+.numbox {
+    background-color: #010203;
+    border-radius: 15px;
+    padding: 4%;
+
+}
+.numbox:hover {
+    background-color: #080f16;
+}
+
+.advsContentBox {
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    background-color: #070707;
+    border-radius: 15px;
+    box-shadow: 1px 2px 8px #1e1d1d, 1px 4px 10px #1e1d1d;
+}
+
+.advsContentBox button {
+    align-self: center;
+    justify-self: center;
+    border-radius: 15px;
+    width: 100%;
+    padding: 2%;
+    font-family: Amazer7;
+    font-size: 100%;
+    background: #070707;
+    color: white;
+    border: 5px white solid;
+}
+.advsContentBox button:hover {
+    background: #1e1d1d;
+}
+.advsContentBox input {
+    background: #070707;
+    color: whitesmoke;
+
+}
