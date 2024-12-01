@@ -6,102 +6,248 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nutritional Value</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        @keyframes fadeAway {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
 </head>
-<body style="margin: 0px;background: #010203;">
-    <div class="body">
-    <div class="navbar" id="navbar">
-        
-            <p>Example Survey Forms Site</p>
-            
-        <div class="justifyItemsCenter">
-            <a href="#" class="normalbox">Home</a>
-            <a href="#" class="normalbox">Form</a>
-            <div class="normalbox">
-                <a href="#" class="normalbox">Login</a>
+<body style="margin: 0px; background: url(./background.jpg) fixed;">
+    <div class="body" id="currentBody">
+        <form>
+            <div class="formBody">
+                <div class="advsContentBox" id="startSurveyBox">
+                    <h3>Welcome To The Food Nutritional Value Survey.</h3>
+                    <p>This Survey Includes The Food Items In The Gaurs International School Email. You must require a school organizational email address. Press the button below to begin the Survey.</p>
+                    <button id="startSurveyButton" class="gButton" type="button" onclick="startSurvey()">Start</button>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="formBody"><br><br><br><br>
-        <div class="contentBox" id="contentBox"><br><br>
-            <h1>Example Form : Survey Type With Polls</h1>
-            <br>
-        </div><br>
-    <div class="contentBox" id="contentBox">
-            <br>
-            <p>This Paragraph Contains Information About The Form, Its Requirements, Its Design and quilifications etc, which can be edited later in the files. Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit eligendi excepturi rem vero tempora id, minima molestias commodi numquam voluptates nostrum provident, dolorum obcaecati. Pariatur neque laudantium aliquid molestias accusantium.</p>
-            <br>
-        </div>
-        <br>
-        <div class="advsContentBox" id="ContentBox"><br>
-            <h4><b>Q1. </b>This Is An Example Question. The Answer Is An Option Selection. Only One Option Can Be Selected</h4><br>
-                <div>
-                    <div class="boxx">
-                <div class="checkbox" id="skibidi" onclick="selectCheckbox('skibidi')"></div><p>This Is An Example Option.</p><br>
-                <div class="checkbox" id="skibidi2" onclick="selectCheckbox('skibidi2')"></div><p>This Is Another Example Option</p><br>
-                <div class="checkbox" id="skibid2" onclick="selectCheckbox('skibid2')"></div><p>You can select only once. Choose Wisely</p><br>
-                <div class="checkbox" id="skibii2" onclick="selectCheckbox('skibii2')"></div><p>There are more forms like this!</p><br>
-                <div class="checkbox" id="skibdi2" onclick="selectCheckbox('skibdi2')"></div><p>Pls select this one!</p><br>
+        </form>
+        <form>
+            <div class="formBody">
+                <div class="advsContentBox" id="canteen">
+                    <h3>Enter Your School Email</h3>
+                    <p>*Required</p>
+                    <input name="Email" type="email" id="emailInput" placeholder="Enter A Valid EMail Adress" required>
+                    <button id="noButton" class="gButton" type="button" onclick="continueSurvey()">Submit</button>
                 </div>
+            </div>
+        </form>
+        <form>
+            <div class="formBody">
+                <div class="advsContentBox" id="visitorQuestion">
+                    <h3>Have you ever been to the school cafeteria?</h3>
+                    <p>*Required</p>
+                    <button id="yesButton" class="gButton" type="button" onclick="continueSurvey()">Yes</button>
+                    <button id="noButton" class="gButton" type="button" onclick="qEnd()">No</button>
                 </div>
-            
-        </div><br>
-        <div class="advsContentBox" id="ContentBox"><br>
-            <h4><b>Q1. </b>This Is A Number Variable Selection. Which Selects A Rating, Number Or Term on a specific item.</h4><br>
-                <div>
-                <div class="boxx">
-                    <div class="numbox"id="lol" onclick="selecttCheckbox('lol')" >1</div>
-                    <div class="numbox"id="loll" onclick="selecttCheckbox('loll')">2</div>
-                    <div class="numbox"id="lo" onclick="selecttCheckbox('lo')">3</div>
-                    <div class="numbox"id="ol" onclick="selecttCheckbox('ol')">4</div>
-                    <div class="numbox"id="d" onclick="selecttCheckbox('d')">5</div>
-                    <div class="numbox"id="o" onclick="selecttCheckbox('o')">6</div>
-                    <div class="numbox"id="ll" onclick="selecttCheckbox('ll')">7</div>
-                    <div class="numbox"id="il" onclick="selecttCheckbox('il')">8</div><br><br><br>
+            </div>
+        </form>
+        <form>
+            <div class="formBody">
+                <div class="advsContentBox" id="visitAgain">
+                    <h3>Will You Ever Plan Going To The Cafeteria In Future?</h3>
+                    <button id="yesButton" class="gButton" type="button" onclick="saveInfoAndContinue()">Yes</button>
+                    <button id="noButton" class="gButton" type="button" onclick="saveInfoAndContinue()">Maybe</button>
+                    <button id="noButton" class="gButton" type="button" onclick="endSurvey()">No</button>
                 </div>
+            </div>
+        </form>
+        <form>
+            <div class="formBody">
+                <div class="advsContentBox" id="endSurveyBox">
+                    <h3>Thank You Very Much For Your Response.</h3>
+                    <p>Your Response Has Been Recorded. Thanks A Lot For Rating Us.</p>
+                    <p>Please Look Forward In The Future, And Taste One Of Our Cafeteria Items.</p>
+                    <p id="responseEmail"></p>
+                    <button id="noButton" class="gButton" type="button" onclick="endSurvey()">End Survey And Response</button>
                 </div>
-            
-        </div><br>
-        <div class="advsContentBox" id="ContentBox"><br>
-            <h4><b>Q1. </b>This question includes a fill in blank. Email and other fill in blanks can also be made </h4><br>
-                <div>
-                    <div class="boxx">
-                        <form method="post"action="https://script.google.com/macros/s/AKfycbydtfeKfiPu47kQYQEKQa36ZDuvhueBykeuk7TVT44nwroCzjZ6FuH8TEDcAztrlyN0/exec">
-                <input id="input" name="Email" type="email" placeholder="Enter A Valid Email">
-                <input id="input" name="Input" type="number" placeholder="Enter A Valid Number">
-                <input id="input" name="Name" type="text" placeholder="Enter A Valid String">
-                <input id="input" name="Password" type="password" placeholder="Enter A Strong Password">
-                <br>
-            <button style="align-self: center;justify-self: center;border-radius: 15px;width: 100%;padding: 2%;font-family: Amazer7;font-size: 100%;" type="submit">Submit</button>
-        <br><br><br>
-                </form>
+            </div>
+        </form>
+        <form>
+            <div class="formBody">
+                <div class="advsContentBox" id="endSurveyBoxx">
+                    <h3>What Kind Of Food Items Did You Consume?</h3>
+                    <div class="mcq-container">
+        <h2>Select Your Options</h2>
+        <input type="checkbox" id="checkbox1" name="checkbox1">
+        <label for="checkbox1">Helllo WORLD</label>
+
+                    <p id="responseEmail"></p>
+                    <button id="noButton" class="gButton" type="button" onclick="endSurvey()">Next</button>
                 </div>
-                </div>
-        </div><br>
-        <hr>
-    </div>
-    </div>
-    <script>
-        mcqState = 'nonSelected'
-        function selectCheckbox(checkbox) {
-            if (mcqState == 'nonSelected') {
-                document.getElementById(checkbox).className = "selected"
-                mcqState = 'selected'
-            }
-            else {
-                return 0;
-            }
+            </div>
+        </form>
+        <script>
+
+            var selectedCafeteriaVising = "n/a";
+            function sendData() {
+    const email = document.getElementById('emailInput').value;
+    const visit = selectedCafeteriaVising
+    const futureVisit = window.futureVisit; // Stored response for 'Will you visit again?'
+
+    // Prepare the data object
+    const data = {
+        email: email,
+        visit: visit,
+        futureVisit: futureVisit
+    };
+
+    // Google Apps Script Web App URL
+    const actionURL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL"; // Replace with your deployed URL
+
+    // Send data using fetch
+    fetch(actionURL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json' // Send as JSON
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        alert('Your response has been recorded!');
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('There was an error submitting your response. Please try again.');
+    });
+}
+ function saveSelection() {
+            const checkboxes = document.querySelectorAll('.checkbox-group input[type="checkbox"]');
+            const selectedItems = [];
+
+            checkboxes.forEach((checkbox) => {
+                if (checkbox.checked) {
+                    selectedItems.push(checkbox.value);
+                } else {
+                    selectedItems.push('blank');
+                }
+            });
+
+            const output = document.getElementById('output');
+            output.textContent = selectedItems.join(', ');
         }
-        mccqState = 'nonSelected'
-        function selecttCheckbox(checkbox) {
-            if (mccqState == 'nonSelected') {
-                document.getElementById(checkbox).style.backgroundColor = '#0D0D0D'
-                mcqState = 'selected'
+
+            document.addEventListener("DOMContentLoaded", function() {
+            // Fetch the IP address from the API
+            fetch("https://api.ipify.org?format=json")
+                .then(response => response.json())
+                .then(data => {
+                    // Display the IP address on the screen
+                    console.log(data.ip);
+                })
+                .catch(error => {
+                    console.error("Error fetching IP address:", error);
+                });
+        });
+            //Get Email And Other Values
+            var userEmail = document.getElementById('emailInput').value;
+            // Setting Up The Survey Forms:
+            document.getElementById("canteen").style.opacity = '0';
+            document.getElementById("canteen").style.position = 'absolute';
+            document.getElementById("visitorQuestion").style.opacity = '0';
+            document.getElementById("visitorQuestion").style.position = 'absolute';
+            document.getElementById("visitAgain").style.opacity = '0';
+            document.getElementById("visitAgain").style.position = 'absolute';
+            document.getElementById("endSurveyBox").style.opacity = '0';
+            document.getElementById("endSurveyBox").style.position = 'absolute';
+            document.getElementById("endSurveyBoxx").style.opacity = '0';
+            document.getElementById("endSurveyBoxx").style.position = 'absolute';
+            function startSurvey() {
+                document.getElementById("startSurveyBox").style.animationName = 'fadeAway';
+                document.getElementById("startSurveyBox").style.animationDuration = '1s';
+                setTimeout(() => {
+                    document.getElementById("startSurveyBox").style.opacity = '0';
+                    document.getElementById("startSurveyBox").style.position = 'absolute';
+                    document.getElementById("startSurveyBox").remove()
+                    document.getElementById("canteen").style.position = 'static';
+                    document.getElementById("canteen").style.animationName = 'fadeIn';
+                    document.getElementById("canteen").style.animationDuration = '1s';
+                    setTimeout(() => {
+                        document.getElementById("canteen").style.opacity = '1';
+                    }, 1000);
+                }, 1000);
             }
-            else {
-                document.getElementById(checkbox).style.backgroundColor = '#010203'
-                mcqState = 'notSelected'
+
+            function continueSurvey() {
+                selectedCafeteriaVising = 'Yes'
+                var userEmail = document.getElementById('emailInput').value;
+                document.getElementById('responseEmail').textContent = "This Response Was Given By ", userEmail;
+                document.getElementById("canteen").style.animationName = 'fadeAway';
+                document.getElementById("canteen").style.animationDuration = '1s';
+                setTimeout(() => {
+                    document.getElementById("canteen").style.opacity = '0';
+                    document.getElementById("canteen").style.position = 'absolute';
+                    document.getElementById("canteen").remove()
+                    document.getElementById("visitorQuestion").style.position = 'static';
+                    document.getElementById("visitorQuestion").style.animationName = 'fadeIn';
+                    document.getElementById("visitorQuestion").style.animationDuration = '1s';
+                    setTimeout(() => {
+                        document.getElementById("visitorQuestion").style.opacity = '1';
+                    }, 1000);
+                }, 1000);
             }
-        }
-    </script>
+            function qEnd() {
+                selectedCafeteriaVising = 'No'
+                document.getElementById("visitorQuestion").style.animationName = 'fadeAway';
+                document.getElementById("visitorQuestion").style.animationDuration = '1s';
+                setTimeout(() => {
+                    document.getElementById("visitorQuestion").style.opacity = '0';
+                    document.getElementById("visitorQuestion").style.position = 'absolute';
+                    document.getElementById("visitorQuestion").remove()
+                    document.getElementById("visitAgain").style.position = 'static';
+                    document.getElementById("visitAgain").style.animationName = 'fadeIn';
+                    document.getElementById("visitAgain").style.animationDuration = '1s';
+                    setTimeout(() => {
+                        document.getElementById("visitAgain").style.opacity = "1";
+                    }, 1000)
+                    }, 1000)
+                }  
+            
+            if (selectedCafeteriaVising == 'Yes') {
+                document.getElementById("visitAgain").style.animationName = 'fadeAway';
+                document.getElementById("visitAgain").style.animationDuration = '1s';
+                setTimeout(() => {
+                    document.getElementById("visitorQuestion").style.opacity = '0';
+                    document.getElementById("visitorQuestion").style.position = 'absolute';
+                    document.getElementById("visitorQuestion").remove()
+                    document.getElementById("visitAgain").style.position = 'static';
+                    document.getElementById("visitAgain").style.animationName = 'fadeIn';
+                    document.getElementById("visitAgain").style.animationDuration = '1s';
+                    setTimeout(() => {
+                        document.getElementById("visitAgain").style.opacity = "1";
+                    }, 1000)
+                    }, 1000)
+                }  
+            
+
+            function endSurvey() {
+                document.getElementById("visitAgain").style.animationName = 'fadeAway';
+                document.getElementById("visitAgain").style.animationDuration = '1s';
+                setTimeout(() => {
+                    document.getElementById("visitAgain").style.opacity = '0';
+                    document.getElementById("visitAgain").style.position = 'absolute';
+                    document.getElementById("visitAgain").remove()
+                    document.getElementById("endSurveyBox").style.position = 'static';
+                    document.getElementById("endSurveyBox").style.animationName = 'fadeIn';
+                    document.getElementById("endSurveyBox").style.animationDuration = '1s';
+                    setTimeout(() => {
+                        document.getElementById("endSurveyBox").style.opacity = "1";
+                    }, 1000)
+                    }, 1000)
+                }   
+
+
+                
+        </script>
+    </div>
+    
 </body>
 </html>

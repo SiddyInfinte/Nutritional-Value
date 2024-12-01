@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link rel="icon" type="image/x-icon" href="./navbarLogo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutritional Value</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #010203;
+}
+
+.poll-container {
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    background-color: #070707;
+    border-radius: 15px;
+    box-shadow: 1px 2px 8px #1e1d1d, 1px 4px 10px #1e1d1d;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+#results {
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+    </style>
+</head>
+<body>
+    <div class="poll-container">
+        <h2>What is your favorite programming language?</h2>
+        <form id="pollForm">
+            <label>
+                <input type="radio" name="poll" value="JavaScript"> JavaScript
+            </label>
+            <label>
+                <input type="radio" name="poll" value="Python"> Python
+            </label>
+            <label>
+                <input type="radio" name="poll" value="Java"> Java
+            </label>
+            <label>
+                <input type="radio" name="poll" value="C++"> C++
+            </label>
+            <button type="button" id="submitPoll">Submit</button>
+        </form>
+        <div id="results" class="hidden">
+            <h3>Poll Results</h3>
+            <div id="pollResults"></div>
+        </div>
+    </div>
+    <script>
+        // JavaScript for poll system
+document.getElementById('submitPoll').addEventListener('click', function () {
+    const pollOptions = document.getElementsByName('poll');
+    let selectedOption = null;
+
+    // Get the selected poll option
+    for (let option of pollOptions) {
+        if (option.checked) {
+            selectedOption = option.value;
+            break;
+        }
+    }
+
+    if (!selectedOption) {
+        alert('Please select an option before submitting.');
+        return;
+    }
+
+    // Simulate poll results
+    const results = {
+        JavaScript: Math.floor(Math.random() * 100),
+        Python: Math.floor(Math.random() * 100),
+        Java: Math.floor(Math.random() * 100),
+        'C++': Math.floor(Math.random() * 100),
+    };
+
+    // Increase the selected option's votes
+    results[selectedOption] += 1;
+
+    // Display results
+    const resultsDiv = document.getElementById('pollResults');
+    resultsDiv.innerHTML = ''; // Clear previous results
+
+    for (let option in results) {
+        const percentage = (results[option] / Object.values(results).reduce((a, b) => a + b, 0)) * 100;
+        const resultRow = document.createElement('div');
+        resultRow.innerHTML = `
+            <strong>${option}:</strong> ${results[option]} votes (${percentage.toFixed(2)}%)
+            <div style="background: #007bff; height: 10px; width: ${percentage}%;"></div>
+        `;
+        resultRow.style.marginBottom = '10px';
+        resultsDiv.appendChild(resultRow);
+    }
+
+    // Show the results section
+    document.getElementById('results').classList.remove('hidden');
+});
+
+    </script>
+</body>
+</html>
